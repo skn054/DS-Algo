@@ -1,0 +1,51 @@
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+
+		ArrayList<String> list = new ArrayList<>();
+		list.add("Sai Kiran");
+		list.add("Aaruhi");
+		list.add("abcd");
+		list.add("abed");
+		list.add("Kbc");
+
+		//sort according to lengths
+
+		// Comparator<String> c = (s1,s2) ->{
+		// 	return s1.length()>s2.length() ? 1 : s1.length()< s2.length() ? -1 : 0;
+		// };
+
+		// Collections.sort(list,c);
+
+
+		// inbuilt sort which is case sensitive
+		//Collections.sort(list);
+
+		// custom sort which is case insensitive
+
+		Collections.sort(list,new Comparator<String>(){
+			public int compare(String s1,String s2){
+				if(s1.compareToIgnoreCase(s2) > 0)
+				{
+                       return 1;
+				}
+				else if(s1.compareToIgnoreCase(s2) < 0){
+					return -1;
+				}
+				else
+				    return 0;
+			}
+		});
+
+		System.out.println(list);
+	}
+}
+
